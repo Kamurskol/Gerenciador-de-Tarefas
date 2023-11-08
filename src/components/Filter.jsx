@@ -1,13 +1,15 @@
+//FUNÇÃO DE FILTRAR POR ORDEM CANCELADA
 //lembrar das props
 //PORRA DE CHAVES MALDITAS 
 //não esquecer das chaves
-const Filter = ({filter, setFilter}) => {
+
+const Filter = ({filter, setFilter, setSort}) => {
   return (
     <div className="filter">
       <h2>Filtrar</h2>
       <div className="filter-options">
         <div>
-          <p>Status</p>
+          <p className="status">Status</p>
           <select value={filter} onChange={(e) => setFilter(e.target.value)}> 
             <option value="All">Todas</option>
             <option value="Completed">Completas</option>
@@ -16,9 +18,10 @@ const Filter = ({filter, setFilter}) => {
         </div>
       </div>
       <div>
-        <p>Ordem alfabética</p>
-        <button>Asc</button>
-        <button>Desc</button>
+        {/* CANCELEI ESSA FUNÇÃO */}
+        {/* <p>Ordem alfabética</p>
+        <button onClick={setSort("Ascendente")}>Ascendente</button>
+        <button onClick={setSort("Desc")}>Descendente</button> */}
       </div>
     </div>
     

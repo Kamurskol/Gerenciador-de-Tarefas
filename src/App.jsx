@@ -9,22 +9,11 @@ function App() {
   const [todos, setTodos] = useState([
     {
       id: 1,
-      text: "Criar funcionalidades do sistema.",
-      category: "Trabalho",
+      text: "As tarefas apareceram aqui depois de criadas",
+      category: "Aqui ficará a categoria",
       isCompleted: false,
     },
-    {
-      id: 2,
-      text: "Ir pra academia",
-      category: "Pessoal",
-      isCompleted: false,
-    },
-    {
-      id: 3,
-      text: "Estudar React",
-      category: "Estudos",
-      isCompleted: false,
-    }
+  
   ])
   
   const [search, setSearch] = useState("")
@@ -68,7 +57,8 @@ function App() {
   <div className='app'>
   <h1>Lista de Tarefas</h1>
   <Search search={search} setSearch={setSearch} />
-  <Filter filter={filter} setFilter={setFilter} />
+  {/*atualizar os props de Filter*/}
+  <Filter filter={filter} setFilter={setFilter} setSort={setSort} />
   <div className='todo-list'>   
     {todos.filter((todo) => {
 // função ternária não deu certo aqui
@@ -79,7 +69,9 @@ function App() {
         } else {
           return !todo.isCompleted;
         }
-      }).filter((todo) => todo.text.toLowerCase().includes(search.toLowerCase())).map((todo) => (
+      }).filter((todo) => todo.text.toLowerCase().includes(search.toLowerCase()))
+      .sort((a, b) => sort === "Asc" ? a.text.localeCompare(b.text) : b.text.localeCompare(a.text))
+      .map((todo) => (
 //a propriedade Todo tem o valor de todo {objeto}
 //quando se repete um componente, é preciso adicionar a prop "key"
       <Todo 

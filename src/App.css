@@ -80,8 +80,13 @@ input, select{
 
 }
 .filter-options{
+  flex: 1 1 1;
+}
+.filter-options div{
   display: flex;
   justify-content: space-between;
-  gap: 3rem;
+  align-items: flex-start;
+  gap: 20rem;
+
 }
 
